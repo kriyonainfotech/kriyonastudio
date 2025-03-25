@@ -44,14 +44,9 @@ const AboutSection = () => {
         animate={inView ? "visible" : "hidden"}
       >
         {/* Section Header */}
-        <motion.div
-          className="border-b border-[#55555580] pb-8 mb-16"
-          variants={itemVariants}
-        >
-          <h2 className="text-5xl md:text-7xl font-light">
-            <span className="block">
-              About Us
-            </span>
+        <motion.div className="text-center pb-8 mb-16" variants={itemVariants}>
+          <h2 className="xxs:mx-5 sm:mx-5 lg:mx-24 2xl:mx-40 xxs:text-4xl sm:text-5xl xl:text-5xl font-bold text-primary-black mx-auto xxs:w-auto leading-snug pt-20t">
+            About Us
           </h2>
         </motion.div>
 
@@ -121,12 +116,12 @@ const AboutSection = () => {
         </div>
 
         {/* Animated Border Elements */}
-        <motion.div
+        {/* <motion.div
           className="absolute left-8 top-1/2 w-px h-32 bg-[#55555580]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-        />
+        /> */}
       </motion.div>
     </section>
   );

@@ -12,60 +12,21 @@ const HeroSection = () => {
 
   return (
     <div
-      className="h-screen relative border border-[#55555580] overflow-hidden"
+      className="h-screen relative border border-[#55555580] overflow-hidden bg-cover bg-right-top bg-no-repeat"
       ref={containerRef}
+      style={{
+        backgroundImage: "url('/Mask group.svg')",
+      }}
     >
-      {/* Header */}
-      <motion.header
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="fixed top-0 w-full px-6 md:px-8 py-4 flex justify-between items-center bg-white/5 backdrop-blur-sm border-b border-gray-200"
-      >
-        <motion.div
-          whileHover={{ borderBottom: "1px solid #555" }}
-          className="text-lg font-light border-b border-transparent cursor-pointer"
-        >
-          Kriyona®
-        </motion.div>
-
-        <nav className="flex gap-6 md:gap-8 text-sm">
-          {["Work", "Studio", "Contact"].map((item) => (
-            <motion.button
-              key={item}
-              transition={{ duration: 0.8 }}
-              className="relative text-[#333] hover:text-[#555]" // Default text color
-              whileHover={{ color: "#555" }} // Smooth color change on hover
-            >
-              {item}
-              <motion.span
-                className="absolute left-0 bottom-0 h-px bg-[#555]"
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.button>
-          ))}
-        </nav>
-      </motion.header>
-
-      {/* <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="hidden md:block absolute left-1/2 top-0 h-full w-px bg-[#55555580]"
-      /> */}
-      <div className="h-screen flex flex-col justify-end px-6 ">
-        {/* Tagline */}
-
-        {/* Title */}
+      <div className="h-screen flex flex-col justify-center md:justify-end px-4">
         <div className="flex flex-col md:block">
-          <motion.div className="flex justify-between items-center text-center">
+          {/* Kriyona */}
+          <motion.div className="relative">
             <motion.h1
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.3 }}
-              className="text-6xl leading-[0.8] uppercase md:text-[280px] font-light overflow-hidden"
+              className="text-4xl sm:text-6xl md:text-9xl lg:text-[180px] xl:text-[250px] leading-[0.8] uppercase font-light overflow-hidden text-center md:text-left"
             >
               <motion.span
                 variants={textVariants}
@@ -75,31 +36,33 @@ const HeroSection = () => {
                 Kriyona
               </motion.span>
             </motion.h1>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.8 }}
-              transition={{ delay: 1.2 }}
-              className="text-sm md:text-lg text-[#555] pe-40 mt-4 md:mt-6"
-            >
-              Visuals with Impact, Branding with Purpose.
-            </motion.div>
           </motion.div>
 
+          {/* Studio */}
           <motion.h1
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.5 }}
-            className="text-6xl leading-[0.8] uppercase md:text-[280px] font-light overflow-hidden text-center md:text-right"
+            className="text-4xl sm:text-6xl md:text-9xl lg:text-[180px] xl:text-[250px] leading-[0.8] uppercase font-light overflow-hidden text-center md:text-right"
           >
             <motion.span
               variants={textVariants}
               transition={{ type: "spring", stiffness: 50 }}
-              className="poppins  outlined-text inline-block"
+              className="poppins outlined-text inline-block"
             >
               Studio
             </motion.span>
           </motion.h1>
+
+          {/* Tagline */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.8 }}
+            transition={{ delay: 1.2 }}
+            className="text-xs sm:text-sm md:text-lg lg:text-xl text-[#555] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mt-4 md:mt-6 mx-auto md:mx-0 md:absolute md:right-10 lg:right-20 xl:right-40 bottom-10 md:bottom-55 lg:bottom-75 xl:bottom-100"
+          >
+            Visuals with Impact, Branding with Purpose.
+          </motion.div>
         </div>
       </div>
 
