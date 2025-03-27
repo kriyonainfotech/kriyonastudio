@@ -20,7 +20,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {/* Branding Column */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-light mb-4 poppins">Kriyona Studio</h3>
+            <div className="mb-8">
+              <img src="/kriyonastudio2.png" className="h-14 w-auto" alt="" />
+            </div>
             <p className="text-md pe-4 text-gray-800 poppins">
               Crafting digital experiences with precision and creativity
             </p>

@@ -151,7 +151,7 @@ const Technologies = () => {
     const currentCategory = categories[activeCategory] || [];
 
 
-  return (  
+  return (
     <section
       className="relative border border-[#55555580] bg-contain bg-top bg-no-repeat"
       style={{
@@ -190,7 +190,7 @@ const Technologies = () => {
 
         {/* Technology Grid */}
         <motion.div
-          className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-px pb-36"
+          className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-px pb-15"
           initial="hidden"
           animate="visible"
           variants={{

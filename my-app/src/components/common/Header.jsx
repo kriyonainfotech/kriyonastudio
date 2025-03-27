@@ -1,16 +1,17 @@
 // components/Header.jsx
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-  { name: "About", path: "/about" },
-  { name: "Pricing", path: "/pricing" },
-  { name: "Contact", path: "/contact" },
-];
+    { name: "About", path: "/about" },
+    { name: "Pricing", path: "/pricing" },
+    { name: "Contact", path: "/contact" },
+  ];
 
   return (
     <motion.header
@@ -21,17 +22,27 @@ const Header = () => {
     >
       {/* Logo */}
       <motion.div
-        whileHover={{ scale: 1.05 }}
+        // whileHover={{ scale: 1.05 }}
         className="text-lg poppins font-light cursor-pointer"
       >
-        Kriyona®
+        <Link to="/">
+          {location.pathname === "/" ? (
+            <img src="/kriyonastudio.svg" className="w-8 h-8" alt="Home Logo" />
+          ) : (
+            <img
+              src="/kriyonastudio2.png"
+              className="w-auto h-8"
+              alt="Other Page Logo"
+            />
+          )}
+        </Link>
       </motion.div>
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex gap-6 lg:gap-8 text-sm">
         {navItems.map((item) => (
           <motion.button
-            key={item}
+            key={item.name}
             className="relative poppins hover:text-[#555] transition-colors"
             whileHover={{ scale: 1.05 }}
           >
