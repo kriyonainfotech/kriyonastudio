@@ -48,3 +48,50 @@ body,
 main {
   flex-grow: 1; /* Pushes the footer down */
 }
+
+img {
+  pointer-events: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+}
+/* Apply gradient scrollbar */
+::-webkit-scrollbar {
+  width: 14px; /* Width for better usability */
+}
+
+::-webkit-scrollbar-track {
+  background: #e0e0e0; /* Neutral gray for contrast */
+  border-radius: 7px; /* Rounded track corners */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    #ff0000, /* Red */
+    #8b0000, /* Dark Red */
+    #550000, /* Deep Red */
+    #000000  /* Black */
+  );
+  border-radius: 7px; /* Rounded thumb corners */
+  border: 2px solid #e0e0e0; /* Border for better visibility */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    #000000, /* Black */
+    #550000, /* Deep Red */
+    #8b0000, /* Dark Red */
+    #ff0000  /* Red */
+  ); /* Reverse gradient on hover */
+  border: 2px solid #d6d6d6; /* Slightly darker border on hover */
+}
+
+.blur-up {
+  filter: blur(5px);
+  transition: filter 0.3s;
+}
+
+.blur-up.lazyloaded {
+  filter: blur(0);
+}

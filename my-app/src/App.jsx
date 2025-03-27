@@ -15,11 +15,35 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Disable Right-Click
+    const disableRightClick = (event) => event.preventDefault();
+    document.addEventListener("contextmenu", disableRightClick);
+
+    // Disable Keyboard Shortcuts
+    const disableKeyboardShortcuts = (event) => {
+      if (
+        event.key === "F12" ||
+        (event.ctrlKey && event.shiftKey && event.key === "I") ||
+        (event.ctrlKey && event.key === "U")
+      ) {
+        event.preventDefault();
+      }
+    };
+    document.addEventListener("keydown", disableKeyboardShortcuts);
+
+    // Clean up listeners on unmount
+    return () => {
+      document.removeEventListener("contextmenu", disableRightClick);
+      document.removeEventListener("keydown", disableKeyboardShortcuts);
+    };
+  }, []);
+
+  useEffect(() => {
     // Simulate a loading delay
     setTimeout(() => setLoading(false), 5000);
   }, []);
 
-  if (loading) return <Loader />; // Show loader before content
+  if (loading) return <Loader />; // Show loader before contentN
 
   return (
     <>

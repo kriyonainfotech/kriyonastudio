@@ -26,7 +26,12 @@ const Header = () => {
         className="text-lg poppins font-light cursor-pointer"
       >
         <Link to="/">
-          {location.pathname === "/" ? (
+          <img
+            src="/kriyonastudio2.png"
+            className="w-auto h-8"
+            alt="Other Page Logo"
+          />
+          {/* {location.pathname === "/" ? (
             <img src="/kriyonastudio.svg" className="w-8 h-8" alt="Home Logo" />
           ) : (
             <img
@@ -34,7 +39,7 @@ const Header = () => {
               className="w-auto h-8"
               alt="Other Page Logo"
             />
-          )}
+          )} */}
         </Link>
       </motion.div>
 
