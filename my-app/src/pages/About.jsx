@@ -1,11 +1,17 @@
 import React from 'react'
+import { motion } from "framer-motion";
 
 export const About = () => {
   return (
     <div>
       <div className="min-h-screen bg-white ">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-red-50/2 to-white pt-48">
+        <section
+          className=" bg-contain bg-bottom bg-no-repeat pt-48"
+          style={{
+            backgroundImage: "url('/Ellipse 462.svg')",
+          }}
+        >
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-5xl md:text-6xl font-light leading-20 text-gray-800 mb-6 mont">
               Creating Digital Experiences
@@ -44,18 +50,18 @@ export const About = () => {
                 </div>
               </div>
             </div>
-            <div className="relative">
+            <motion.div className="relative" whileHover={{ scale: 1.05 }}>
               <img
                 src="/about.webp"
                 alt="Our Workspace"
                 className="w-3/4 max-w-md mx-auto rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
               />
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Values Section */}
-        <section className="py-20">
+        <section className="py-20  bg-contain bg-bottom bg-no-repeat">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-normal text-center mb-12 text-gray-800 mont">
               What Drives Us
@@ -75,9 +81,11 @@ export const About = () => {
                   desc: "Building strong partnerships to bring unique visions to life with precision.",
                 },
               ].map((item, index) => (
-                <div
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.1 }}
                   key={index}
-                  className="p-8 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
+                  className="p-8 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer "
                 >
                   <div className="w-12 h-12 bg-red-100 rounded-full mb-6 flex items-center justify-center">
                     <div className="w-6 h-6 bg-gradient-to-r from-red-500 to-black rounded-full"></div>
@@ -86,7 +94,7 @@ export const About = () => {
                     {item.title}
                   </h3>
                   <p className="text-gray-600 poppins">{item.desc}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -101,13 +109,21 @@ export const About = () => {
             <p className="text-gray-600 mb-6 max-w-xl mx-auto">
               Let's collaborate and craft something extraordinary together.
             </p>
-            <button className="px-8 py-3 mont text-white bg-gradient-to-r from-red-700 to-gray-800 rounded-lg cursor-pointer transition-all duration-300 shadow-md">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="px-8 py-3 mont text-white bg-gradient-to-r from-red-700 to-gray-800 rounded-lg cursor-pointer transition-all duration-300 shadow-md"
+            >
               Schedule Consultation
-            </button>
+            </motion.button>
           </div>
         </section>
 
-        <section className="py-20">
+        <section
+          className="py-20  bg-contain bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/Ellipse 462.svg')",
+          }}
+        >
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-normal mont text-center mb-12 text-gray-800">
               Our Core Expertise
@@ -123,7 +139,9 @@ export const About = () => {
                   desc: "Delivering premium-quality video, motion graphics, and post-production excellence.",
                 },
               ].map((service, index) => (
-                <div
+                <motion.div
+                  transition={{ duration: 0.2 }}
+                  whileHover={{ scale: 1.05 }}
                   key={index}
                   className="p-[1px] rounded-lg bg-gradient-to-r from-red-500 to-black"
                 >
@@ -133,7 +151,7 @@ export const About = () => {
                     </h3>
                     <p className="text-gray-600 mont">{service.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -141,4 +159,4 @@ export const About = () => {
       </div>
     </div>
   );
-}
+};

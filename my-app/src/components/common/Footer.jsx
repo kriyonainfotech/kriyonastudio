@@ -1,12 +1,34 @@
 // components/Footer.jsx
 import { motion } from "framer-motion";
+import { GrInstagram } from "react-icons/gr";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+} from "react-icons/fa";
 
 const Footer = () => {
   const footerLinks = [
-    // { title: "Home", items: ["About Us", "Technologies", "Services"] },
-    { title: "Work", items: ["Projects", "Clients", "Case Studies"] },
-    { title: "Studio", items: ["About", "Team", "Contact"] },
-    { title: "Connect", items: ["FaceBook", "LinkedIn", "Instagram", "Youtube"] },
+    {
+      title: "Studio",
+      items: [
+        { text: "About", link: "/about" },
+        { text: "Pricing", link: "/pricing" },
+        { text: "Contact", link: "/contact" },
+      ],
+    },
+    {
+      title: "Work",
+      items: [
+        { text: "Projects", link: "/#projects" },
+        { text: "Services", link: "/#services" },
+        { text: "Our Technologies", link: "/#technologies" },
+      ],
+    },
   ];
 
   return (
@@ -37,18 +59,47 @@ const Footer = () => {
               {section.items.map((item) => (
                 <motion.a
                   key={item}
-                  href="#"
+                  href={item.link}
                   className="block mont text-md text-gray-700 hover:text-[#555] transition-colors"
                   whileHover={{ x: 5 }}
                 >
-                  {item}
+                  {item.text}
                 </motion.a>
               ))}
             </div>
           ))}
 
+          <div className="flex flex-col gap-2 text-sm">
+            <h4 className="text-xl poppins font-medium mb-5">Contact Us</h4>
+            <div className="flex items-start gap-2 mb-3 text-md tracking-wide roboto">
+              <FaEnvelope className="mt-1 text-gradient" />
+              <a
+                href="mailto:kriyonastudio@gmail.com"
+                className="block mont text-gray-800 hover:text-[#555] transition-colors"
+              >
+                kriyonastudio@gmail.com
+              </a>
+            </div>
+            <div className="flex items-start gap-2 mb-3 text-md tracking-wide roboto">
+              <FaPhoneAlt className=" mt-1 text-gradient" />
+              <a
+                href="tel:+1234567890"
+                className="block mont text-gray-800 hover:text-[#555] transition-colors"
+              >
+                +91 84879 53196
+              </a>
+            </div>
+            <div className="flex items-start gap-2 mb-3 text-md tracking-wide roboto">
+              <FaMapMarkerAlt className="text-gradient text-2xl" />
+              <span className="block mont text-gray-800 hover:text-[#555] transition-colors">
+                3rd floor, 51-52 Pramukh park society, Mahadev chowk, Mota
+                Varachha, Surat, Gujarat 394101
+              </span>
+            </div>
+          </div>
+
           {/* Social Links */}
-          <div className="space-y-4">
+          {/* <div className="space-y-4">
             <h4 className="text-sm font-medium mb-2">Follow Us</h4>
             <div className="flex gap-4">
               {["FaceBook", "Instagram", "LinkedIn", "Youtube"].map(
@@ -65,6 +116,41 @@ const Footer = () => {
                 )
               )}
             </div>
+          </div> */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium mb-2">Follow Us</h4>
+            <div className="flex gap-4">
+              {[
+                {
+                  platform: "Instagram",
+                  link: "https://www.instagram.com/kriyonastudio/?locale=uken1&hl=am-et",
+                },
+                {
+                  platform: "Youtube",
+                  link: "https://www.youtube.com/@KriyonaStudio",
+                },
+                {
+                  platform: "FaceBook",
+                  link: "https://www.facebook.com/profile.php?id=61570457034132",
+                },
+                {
+                  platform: "LinkedIn",
+                  link: "https://www.linkedin.com/company/kriyona-studio",
+                },
+              ].map(({ platform, link }) => (
+                <motion.a
+                  key={platform}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#55555580] hover:text-[#555]"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <span className="sr-only">{platform}</span>
+                  <SocialIcon platform={platform} />
+                </motion.a>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -79,8 +165,18 @@ const Footer = () => {
 
 // Helper component for social icons
 const SocialIcon = ({ platform }) => {
-  // Add your SVG icons here
-  return <div className="w-6 h-6 bg-[#55555520] rounded-full" />;
+  const icons = {
+    FaceBook: <FaFacebookF className="w-6 h-6 text-[#0866ff]" />,
+    Instagram: <FaInstagram className="w-6 h-6 text-pink-700" />,
+    LinkedIn: <FaLinkedinIn className="w-6 h-6 text-[#0a66c2]" />,
+    Youtube: <FaYoutube className="w-6 h-6 text-red-500" />,
+  };
+
+  return (
+    <div className="flex items-center text-gray-700 justify-center w-12 h-12 rounded-full border border-gray-600 hover:scale-110 transition-transform">
+      {icons[platform]}
+    </div>
+  );
 };
 
 export default Footer;

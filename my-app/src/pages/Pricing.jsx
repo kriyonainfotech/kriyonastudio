@@ -159,11 +159,11 @@ const Pricing = () => {
   };
 
   return (
-    <section className="relative border border-[#55555580] bg-white">
+    <section className="relative border border-[#55555580] bg-contain bg-right-top bg-no-repeat">
       <div className="container mx-auto px-6 md:px-8 py-24">
         {/* Section Header */}
-        <div className="border-b border-[#55555580] text-center pb-8 mb-16">
-          <h2 className="xxs:mx-5 sm:mx-5 lg:mx-24 2xl:mx-40 xxs:text-4xl sm:text-5xl xl:text-5xl font-bold bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent poppins mx-auto xxs:w-auto leading-snug pt-20">
+        <div className="border border-[#55555580] text-center my-15 py-5">
+          <h2 className="xxs:mx-5 sm:mx-5 lg:mx-24 2xl:mx-40 xxs:text-4xl sm:text-5xl xl:text-5xl font-bold bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent poppins mx-auto xxs:w-auto leading-snug ">
             Pricing Structure
           </h2>
         </div>
@@ -177,64 +177,72 @@ const Pricing = () => {
           animate={inView ? "visible" : "hidden"}
         >
           {sections.map((section, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              {/* Section Header */}
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 border-b border-[#55555580] pb-6 gap-4">
-                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light poppins">
-                  {section.title}
-                </h3>
-                <motion.a
-                  href={section.pdfLink}
-                  download
-                  className="text-sm border poppins border-[#55555580] px-4 py-2 bg-white text-black hover:bg-gradient-to-r hover:from-red-500 hover:to-black hover:text-white transition-all"
-                >
-                  Download Pricing Guide
-                </motion.a>
-              </div>
-
-              {/* Plans Grid */}
-              <div className="grid lg:grid-cols-3 gap-px bg-[#55555520] ">
-                {section.plans.map((plan, idx) => (
-                  <motion.div
-                    key={idx}
-                    className="bg-white relative group h-full "
-                    variants={itemVariants}
-                    // whileHover={{ y: -10 }}
+            <div
+              className="bg-cover bg-right-top bg-no-repeat"
+              style={{
+                backgroundImage: "url('/Ellipse 461.svg')",
+              }}
+            >
+              <motion.div key={index} variants={itemVariants}>
+                {/* Section Header */}
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center pt-5 pb-5 px-5 border-t border-l border-r border-[#55555580] gap-4">
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-xl font-normal mont">
+                    {section.title}
+                  </h3>
+                  <motion.a
+                    href={section.pdfLink}
+                    download
+                    className="text-sm border poppins border-[#55555580] px-4 py-2 bg-white text-black hover:bg-gradient-to-r hover:from-red-500 hover:to-black hover:text-white transition-all"
                   >
-                    {/* {plan.tier === "Standard" && (
+                    Download Pricing Guide
+                  </motion.a>
+                </div>
+
+                {/* Plans Grid */}
+                <div className="grid lg:grid-cols-3 gap-px bg-[#55555520] ">
+                  {section.plans.map((plan, idx) => (
+                    <motion.div
+                      key={idx}
+                      className="bg-white relative group h-full "
+                      variants={itemVariants}
+
+                      // whileHover={{ y: -10 }}
+                    >
+                      {/* {plan.tier === "Standard" && (
                       <div className="absolute top-0 right-8 -translate-y-1/2 px-4 py-1 bg-[#555] text-white text-xs z-50">
                         Most Popular
                       </div>
                     )} */}
-                    <div className="border border-[#55555580] px-5 py-15 h-full">
-                      {/* <h4 className="text-2xl font-light mb-4">{plan.tier}</h4> */}
-                      <div className="border-b border-[#55555520] pb-6 mb-6">
-                        <p className="text-4xl font-light poppins">
-                          {plan.price}
-                        </p>
-                      </div>
-                      <ul className="space-y-4 mb-8">
-                        {plan.features.map((feature, i) => (
-                          <li
-                            key={i}
-                            className="flex items-center roboto text-[#55555580]"
-                          >
-                            <span className="mr-2">▹</span>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                      {/* <motion.button
+                      <div className="border border-[#55555580] px-5 py-15 h-full">
+                        {/* <h4 className="text-2xl font-light mb-4">{plan.tier}</h4> */}
+                        <div className="border-b border-[#55555520] pb-6 mb-6">
+                          <p className="text-4xl font-light poppins">
+                            {plan.price}
+                          </p>
+                        </div>
+                        <ul className="space-y-4 mb-8">
+                          {plan.features.map((feature, i) => (
+                            <li
+                              key={i}
+                              className="flex items-center roboto text-gray-700"
+                            >
+                              <span className="mr-2">▹</span>
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                        {/* <motion.button
                         className="w-full mont py-4 border border-[#55555580] hover:bg-[#555] hover:text-white transition-all"
                         whileHover={{ scale: 1.02 }}
                       >
                         Choose Plan
                       </motion.button> */}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           ))}
         </motion.div>
 

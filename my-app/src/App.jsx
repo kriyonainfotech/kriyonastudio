@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
 import Home from "./pages/Home";
@@ -13,30 +13,46 @@ import "./assets/style.css";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
-    // Disable Right-Click
-    const disableRightClick = (event) => event.preventDefault();
-    document.addEventListener("contextmenu", disableRightClick);
-
-    // Disable Keyboard Shortcuts
-    const disableKeyboardShortcuts = (event) => {
-      if (
-        event.key === "F12" ||
-        (event.ctrlKey && event.shiftKey && event.key === "I") ||
-        (event.ctrlKey && event.key === "U")
-      ) {
-        event.preventDefault();
+    const scrollToHash = () => {
+      if (location.hash) {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 300); // Small delay ensures the DOM is fully rendered before scrolling
+        }
       }
     };
-    document.addEventListener("keydown", disableKeyboardShortcuts);
 
-    // Clean up listeners on unmount
-    return () => {
-      document.removeEventListener("contextmenu", disableRightClick);
-      document.removeEventListener("keydown", disableKeyboardShortcuts);
-    };
-  }, []);
+    scrollToHash();
+  }, [location]); // Runs when route changes
+
+  // useEffect(() => {
+  //   // Disable Right-Click
+  //   const disableRightClick = (event) => event.preventDefault();
+  //   document.addEventListener("contextmenu", disableRightClick);
+
+  //   // Disable Keyboard Shortcuts
+  //   const disableKeyboardShortcuts = (event) => {
+  //     if (
+  //       event.key === "F12" ||
+  //       (event.ctrlKey && event.shiftKey && event.key === "I") ||
+  //       (event.ctrlKey && event.key === "U")
+  //     ) {
+  //       event.preventDefault();
+  //     }
+  //   };
+  //   document.addEventListener("keydown", disableKeyboardShortcuts);
+
+  //   // Clean up listeners on unmount
+  //   return () => {
+  //     document.removeEventListener("contextmenu", disableRightClick);
+  //     document.removeEventListener("keydown", disableKeyboardShortcuts);
+  //   };
+  // }, []);
 
   useEffect(() => {
     // Simulate a loading delay

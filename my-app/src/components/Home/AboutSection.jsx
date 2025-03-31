@@ -24,7 +24,7 @@ const AboutSection = () => {
 
   return (
     <section
-      className="min-h-screen border border-[#55555580] relative bg-white"
+      className="min-h-screen border border-[#55555580] relative"
       ref={ref}
     >
       {/* Grid Overlay */}
@@ -44,65 +44,52 @@ const AboutSection = () => {
         animate={inView ? "visible" : "hidden"}
       >
         {/* Section Header */}
-        <motion.div className="text-center pb-8 mb-16" variants={itemVariants}>
-          <h2 className="xxs:mx-5 sm:mx-5 lg:mx-24 2xl:mx-40 xxs:text-4xl sm:text-5xl xl:text-5xl font-bold text-primary-black mx-auto xxs:w-auto leading-snug pt-20t">
+        <motion.div className="text-center pb-8 mb-16 " variants={itemVariants}>
+          <h2 className="xxs:mx-5 sm:mx-5 lg:mx-24 2xl:mx-40 xxs:text-4xl sm:text-5xl xl:text-5xl font-bold text-gray-800 mx-auto xxs:w-auto leading-snug pt-20t">
             About Us
           </h2>
         </motion.div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 text-center gap-12">
           {/* Left Column */}
-          <motion.div className="space-y-8" variants={itemVariants}>
+          <motion.div
+            className="space-y-8 bg-white py-8 px-6 border border-[#55555580]"
+            variants={itemVariants}
+          >
             <motion.p
-              className="text-xl leading-relaxed"
+              className="text-lg font-normal text-gray-800 leading-relaxed poppins"
               variants={itemVariants}
             >
-              Kriyona Studio is a digital foundry where innovation meets
-              craftsmanship. We bridge the gap between technological excellence
-              and human-centered design.
+              At{" "}
+              <span className="font-bold  bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent">
+                Kriyona Studio
+              </span>
+              , we bring your brand to life through visually stunning and
+              strategically crafted content. Specializing in professional reel
+              making, video editing, post designing, and branding, we help
+              businesses and creators stand out in the digital world.
             </motion.p>
-
-            <motion.div
-              className="border border-[#55555580] p-8"
-              variants={itemVariants}
-            >
-              <h3 className="text-2xl mb-4">Core Tenets</h3>
-              <ul className="space-y-4">
-                {[
-                  "Precision Engineering",
-                  "Creative Integrity",
-                  "Sustainable Solutions",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center border-b border-[#55555520] pb-2"
-                  >
-                    <span className="mr-2">▹</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
           </motion.div>
 
           {/* Right Column */}
           <motion.div className="space-y-8" variants={containerVariants}>
             <motion.div
-              className="border border-[#55555580] p-8 relative"
+              className="border border-[#55555580] bg-white p-6 relative"
               variants={itemVariants}
             >
-              <div className="absolute -top-4 left-4 bg-white px-2 text-sm">
+              <div className="absolute -top-4 left-4 bg-white px-2 text-sm font-normal mont">
                 Since 2024
               </div>
-              <p className="text-lg">
-                Crafting digital experiences that combine technical mastery with
-                artistic vision. Our process is built on iterative refinement
-                and cross-disciplinary collaboration.
+              <p className="text-md mont text-gray-800 ">
+                From startups to established brands, Kriyona Studio is your
+                go-to creative partner for building a strong, visually
+                compelling digital presence. <br /> Let’s create something
+                amazing together!
               </p>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               className="group relative h-64 bg-gray-100 border border-[#55555580] overflow-hidden"
               variants={itemVariants}
               whileHover={{ scale: 0.98 }}
@@ -111,9 +98,33 @@ const AboutSection = () => {
               <div className="p-4 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white to-transparent">
                 <h3 className="text-xl">Process →</h3>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
+
+        <motion.div
+          className="bg-white border border-[#55555580] p-8 mt-10 relative"
+          variants={itemVariants}
+        >
+          <div className="absolute -top-4 left-4 bg-white px-2 text-sm font-normal mont">
+            Our Expertise
+          </div>
+          <ul className="space-y-6">
+            {[
+              "Reel Production & Editing – From iPhone to DSLR cinematic reels, we ensure high-quality shooting, seamless editing, and engaging storytelling.",
+              "Graphic & Post Design – A brand’s voice is best expressed through compelling social media posts, logos, and branding graphics.",
+              "Marketing-Driven Content – We don’t just create; we strategize. Our content is designed to increase engagement and visibility across platforms.",
+            ].map((item) => (
+              <li
+                key={item}
+                className="flex items-start border-b border-[#55555520] mont font-normal text-md text-gray-800 pb-2"
+              >
+                <span className="mr-2">▹</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
 
         {/* Animated Border Elements */}
         {/* <motion.div

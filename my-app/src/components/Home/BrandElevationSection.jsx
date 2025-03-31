@@ -37,7 +37,13 @@ const BrandElevationSection = () => {
   };
 
   return (
-    <section className="relative border border-[#55555580] bg-white">
+    <section
+      className="relative border border-[#55555580]  bg-contain bg-top bg-no-repeat"
+      id="services"
+      style={{
+        backgroundImage: "url('/Ellipse 462.svg')",
+      }}
+    >
       <div className="container mx-auto px-6 md:px-8 py-24">
         {/* Section Header */}
         <div className="text-center mb-16">

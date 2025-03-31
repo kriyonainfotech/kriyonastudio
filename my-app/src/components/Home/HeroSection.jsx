@@ -15,7 +15,7 @@ const HeroSection = () => {
       className="h-screen relative border border-[#55555580] overflow-hidden bg-cover bg-right-top bg-no-repeat"
       ref={containerRef}
       style={{
-        backgroundImage: "url('/Mask group.svg')",
+        backgroundImage: "url('/Ellipse 462.svg')",
       }}
     >
       <div className="h-screen flex flex-col justify-center md:justify-end px-4">
@@ -26,12 +26,12 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.3 }}
-              className="text-4xl sm:text-6xl md:text-9xl lg:text-[180px] xl:text-[250px] leading-[0.8] uppercase font-light overflow-hidden text-center md:text-left"
+              className="text-7xl sm:text-8xl md:text-9xl lg:text-[180px] xl:text-[250px] leading-[0.8] uppercase font-light overflow-hidden text-center md:text-left"
             >
               <motion.span
                 variants={textVariants}
                 transition={{ type: "spring", stiffness: 50 }}
-                className="poppins inline-block"
+                className="poppins inline-block outlined-text"
               >
                 Kriyona
               </motion.span>
@@ -43,12 +43,12 @@ const HeroSection = () => {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.5 }}
-            className="text-4xl sm:text-6xl md:text-9xl lg:text-[180px] xl:text-[250px] leading-[0.8] uppercase font-light overflow-hidden text-center md:text-right"
+            className="text-7xl sm:text-8xl md:text-9xl lg:text-[180px] xl:text-[250px] leading-[0.8] uppercase font-light overflow-hidden text-center md:text-right"
           >
             <motion.span
               variants={textVariants}
               transition={{ type: "spring", stiffness: 50 }}
-              className="poppins outlined-text inline-block"
+              className="poppins inline-block"
             >
               Studio
             </motion.span>
@@ -59,7 +59,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.8 }}
             transition={{ delay: 1.2 }}
-            className="text-xs sm:text-sm md:text-lg lg:text-xl text-[#555] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mt-4 md:mt-6 mx-auto md:mx-0 md:absolute md:right-10 lg:right-20 xl:right-40 bottom-10 md:bottom-55 lg:bottom-75 xl:bottom-100"
+            className=" sm:text-md md:text-lg lg:text-xl text-[#555] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mt-4 md:mt-6 mx-auto md:mx-0 md:absolute md:right-10 lg:right-20 xl:right-40 bottom-10 md:bottom-55 lg:bottom-75 xl:bottom-100"
           >
             Visuals with Impact, Branding with Purpose.
           </motion.div>

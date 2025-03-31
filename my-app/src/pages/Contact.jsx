@@ -15,11 +15,14 @@ const ContactForm = () => {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     try {
-      const response = await fetch("http://localhost:5000/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(
+        "https://kriyonastudio-backend.vercel.app/send-email",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        }
+      );
 
       if (response.ok) {
         setSuccess(true);
@@ -51,14 +54,14 @@ const ContactForm = () => {
     <section className="relative border border-[#55555580] bg-white">
       <div className="container mx-auto px-6 md:px-8 py-24">
         {/* Section Header */}
-        <div className="border-b text-center border-[#55555580] pb-8 mb-16">
-          <h2 className="xxs:mx-5 sm:mx-5 lg:mx-24 2xl:mx-40 xxs:text-4xl sm:text-5xl xl:text-5xl font-bold bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent mx-auto xxs:w-auto leading-snug pt-20t">
+        <div className="border text-center border-[#55555580] py-5 mt-8">
+          <h2 className="xxs:mx-5 sm:mx-5 lg:mx-24 2xl:mx-40 xxs:text-4xl sm:text-5xl xl:text-5xl font-bold bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent mx-auto xxs:w-auto leading-snug">
             Get in Touch With Us
           </h2>
         </div>
 
         <motion.div
-          className="grid md:grid-cols-2 gap-12"
+          className="grid md:grid-cols-2 gap-12 border-l border-r border-b border-[#55555580]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -66,7 +69,7 @@ const ContactForm = () => {
           {/* Contact Form */}
           <motion.form
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-6"
+            className="space-y-6 p-6"
             variants={itemVariants}
           >
             <div className="space-y-4">
@@ -74,6 +77,7 @@ const ContactForm = () => {
                 <label className="text-sm mb-2">Your Name</label>
                 <input
                   type="text"
+                  placeholder="John Doe"
                   {...register("name", { required: true })}
                   className="border border-[#55555580] p-3 focus:outline-none focus:border-[#555]"
                 />
@@ -86,6 +90,7 @@ const ContactForm = () => {
                 <label className="text-sm mb-2">Email</label>
                 <input
                   type="email"
+                  placeholder="kriyonastudio@gmail.com"
                   {...register("email", { required: true })}
                   className="border border-[#55555580] p-3 focus:outline-none focus:border-[#555]"
                 />
@@ -130,12 +135,14 @@ const ContactForm = () => {
 
           {/* Contact Info */}
           <motion.div
-            className="space-y-8 border-l border-[#55555580] pl-8"
+            className="space-y-8 border-l border-[#55555580] p-8"
             variants={itemVariants}
           >
             <div className="space-y-4">
-              <h3 className="text-2xl font-light">Kriyona Studio</h3>
-              <p className="text-[#55555580]">
+              <h3 className="text-2xl font-bold text-gray-800">
+                Kriyona Studio
+              </h3>
+              <p className="text-gray font-normal poppins text-gray-500">
                 Digital Craftsmanship & Brand Elevation
               </p>
             </div>
@@ -159,10 +166,10 @@ const ContactForm = () => {
             </div>
 
             <div className="border-t border-[#55555520] pt-8">
-              <h4 className="text-lg mont poppins font-light mb-4">
+              <h4 className="text-xl poppins font-bold text-gray-800 mb-4">
                 Working Hours
               </h4>
-              <p className="text-[#55555580] poppins text-md">
+              <p className="text-gray-500 poppins text-md">
                 Mon-Sat: 9AM - 7PM IST
               </p>
             </div>

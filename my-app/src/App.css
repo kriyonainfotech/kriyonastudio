@@ -95,3 +95,6 @@ img {
 .blur-up.lazyloaded {
   filter: blur(0);
 }
+
+.bg-g1{
+ background: linear-gradient(135deg, #ffffff, #fffdfd, #f7f0f0, #dcdcdc);}

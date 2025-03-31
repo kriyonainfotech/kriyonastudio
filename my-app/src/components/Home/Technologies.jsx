@@ -153,10 +153,11 @@ const Technologies = () => {
 
   return (
     <section
-      className="relative border border-[#55555580] bg-contain bg-top bg-no-repeat"
+      className="relative border border-[#55555580] bg-contain bg-bottom bg-no-repeat"
       style={{
-        backgroundImage: "url('/Ellipse 461.svg')",
+        backgroundImage: "url('/Ellipse 462.svg')",
       }}
+      id="technologies"
     >
       <div className="container mx-auto border-x border-[#55555580]">
         {/* Section Header */}

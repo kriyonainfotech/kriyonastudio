@@ -2,12 +2,18 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+} from "react-icons/fa";
 const Header = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
+    { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Pricing", path: "/pricing" },
     { name: "Contact", path: "/contact" },
@@ -23,12 +29,12 @@ const Header = () => {
       {/* Logo */}
       <motion.div
         // whileHover={{ scale: 1.05 }}
-        className="text-lg poppins font-light cursor-pointer"
+        className="text-lg poppins font-light cursor-pointer "
       >
         <Link to="/">
           <img
             src="/kriyonastudio2.png"
-            className="w-auto h-8"
+            className="w-auto h-8 object-contain"
             alt="Other Page Logo"
           />
           {/* {location.pathname === "/" ? (
@@ -44,21 +50,54 @@ const Header = () => {
       </motion.div>
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex gap-6 lg:gap-8 text-sm">
-        {navItems.map((item) => (
-          <motion.button
-            key={item.name}
-            className="relative poppins hover:text-[#555] transition-colors"
-            whileHover={{ scale: 1.05 }}
-          >
-            <Link to={item.path}>{item.name}</Link>
-            <motion.span
-              className="absolute -bottom-1 left-0 w-0 h-px bg-[#555]"
-              whileHover={{ width: "100%" }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.button>
-        ))}
+      <nav className="hidden md:flex justify-end gap-20 w-full">
+        {/* Navigation Links */}
+        <div className="flex gap-6 lg:gap-8 text-sm">
+          {navItems.map((item) => (
+            <motion.button
+              key={item.name}
+              className="relative poppins hover:text-[#555] transition-colors"
+              whileHover={{ scale: 1.05 }}
+            >
+              <Link to={item.path}>{item.name}</Link>
+              <motion.span
+                className="absolute -bottom-1 left-0 w-0 h-px bg-[#555]"
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.button>
+          ))}
+        </div>
+
+        {/* Social Icons */}
+        <div className="flex gap-4">
+          {[
+            {
+              icon: <FaInstagram />,
+              link: "https://www.instagram.com/kriyonastudio/?locale=uken1&hl=am-et",
+            },
+            {
+              icon: <FaYoutube />,
+              link: "https://www.youtube.com/@KriyonaStudio",
+            },
+            {
+              icon: <FaFacebookF />,
+              link: "https://www.facebook.com/profile.php?id=61570457034132",
+            },
+            {
+              icon: <FaLinkedinIn />,
+              link: "https://www.linkedin.com/company/kriyona-studio",
+            },
+          ].map((item, index) => (
+            <motion.a
+              key={index}
+              href={item.link}
+              className="flex items-center text-gray-700 justify-center w-10 h-10 rounded-full border border-gray-600 hover:scale-110 transition-transform"
+            >
+              {item.icon}
+            </motion.a>
+          ))}
+        </div>
       </nav>
 
       {/* Mobile Menu Button */}
@@ -85,6 +124,35 @@ const Header = () => {
               {item.name}
             </div>
           ))}
+          {/* Social Icons */}
+          <div className="flex gap-4 border-t border-gray-300 py-5 ps-5">
+            {[
+              {
+                icon: "Instagram",
+                link: "https://www.instagram.com/kriyonastudio/?locale=uken1&hl=am-et",
+              },
+              {
+                icon: "Youtube",
+                link: "https://www.youtube.com/@KriyonaStudio",
+              },
+              {
+                icon: "FaceBook",
+                link: "https://www.facebook.com/profile.php?id=61570457034132",
+              },
+              {
+                icon: "LinkedIn",
+                link: "https://www.linkedin.com/company/kriyona-studio",
+              },
+            ].map((item, index) => (
+              <motion.a
+                key={index}
+                href={item.link}
+                className="flex items-center text-gray-700 justify-center w-10 h-10 rounded-full border border-gray-600 hover:scale-110 transition-transform"
+              >
+                {item.icon}
+              </motion.a>
+            ))}
+          </div>
         </motion.div>
       )}
     </motion.header>
