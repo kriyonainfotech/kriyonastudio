@@ -1,0 +1,77 @@
+/* Gradient Overlays */
+.gradient-overlay-left {
+  position: absolute;
+  inset-y: 0;
+  left: 0;
+  width: 8rem;
+  background: linear-gradient(to right, white, transparent);
+  z-index: 20;
+}
+
+.gradient-overlay-right {
+  position: absolute;
+  inset-y: 0;
+  right: 0;
+  width: 8rem;
+  background: linear-gradient(to left, white, transparent);
+  z-index: 20;
+}
+
+/* Marquee Container */
+.marquee-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+/* Marquee Content - Animation */
+.marquee-content {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 100%;
+  gap: 2rem;
+  padding-right: 2rem;
+  animation: marquee 40s linear infinite;
+}
+
+/* Marquee Item Styling */
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Text Gradient Styling */
+.text-gradient-1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #dc2626, #7f1d1d, black);
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #ef4444, #450a0a, #000000);
+  background-clip: text;
+  color: transparent;
+}
+
+/* Animation Keyframes */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Force hardware acceleration */
+.marquee-content {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
