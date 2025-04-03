@@ -157,6 +157,15 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-[#55555520] mt-8 pt-8 text-center text-sm text-[#55555580]">
           © {new Date().getFullYear()} Kriyona Studio. All rights reserved.
+          <br />
+          Developed By{" "}
+          <a
+            href="https://www.kriyonainfotech.com/"
+            className="text-[#555] underline"
+            target="_blank"
+          >
+            Kriyona Infotech
+          </a>
         </div>
       </div>
     </motion.footer>

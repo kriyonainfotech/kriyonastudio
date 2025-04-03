@@ -15,14 +15,12 @@ const ContactForm = () => {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     try {
-      const response = await fetch(
-        "https://kriyonastudio-backend.vercel.app/send-email",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        }
-      );
+      const response = await fetch("http://localhost:5000/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      console.log(response, "data");
 
       if (response.ok) {
         setSuccess(true);
@@ -73,44 +71,79 @@ const ContactForm = () => {
             variants={itemVariants}
           >
             <div className="space-y-4">
+              {/* Name Field */}
               <div className="flex flex-col">
                 <label className="text-sm mb-2">Your Name</label>
                 <input
                   type="text"
                   placeholder="John Doe"
-                  {...register("name", { required: true })}
+                  {...register("name", { required: "Name is required" })}
                   className="w-full border border-[#55555580] p-3 focus:outline-none focus:border-[#555]"
                 />
                 {errors.name && (
-                  <span className="text-red-500 text-sm">Required field</span>
-                )}
-              </div>
-
-              <div className="flex flex-col">
-                <label className="text-sm mb-2">Email</label>
-                <input
-                  type="email"
-                  placeholder="JohnDeo@gmail.com"
-                  {...register("email", { required: true })}
-                  className="w-full border border-[#55555580] p-3 focus:outline-none focus:border-[#555]"
-                />
-                {errors.email && (
                   <span className="text-red-500 text-sm">
-                    Valid email required
+                    {errors.name.message}
                   </span>
                 )}
               </div>
 
+              {/* Email Field */}
+              <div className="flex flex-col">
+                <label className="text-sm mb-2">Email</label>
+                <input
+                  type="email"
+                  placeholder="JohnDoe@gmail.com"
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /\S+@\S+\.\S+/,
+                      message: "Enter a valid email",
+                    },
+                  })}
+                  className="w-full border border-[#55555580] p-3 focus:outline-none focus:border-[#555]"
+                />
+                {errors.email && (
+                  <span className="text-red-500 text-sm">
+                    {errors.email.message}
+                  </span>
+                )}
+              </div>
+
+              {/* Message Field */}
               <div className="flex flex-col">
                 <label className="text-sm mb-2">Message</label>
                 <textarea
-                  {...register("message", { required: true })}
+                  {...register("message", {
+                    required: "Message cannot be empty",
+                  })}
                   className="w-full border border-[#55555580] p-3 h-32 focus:outline-none focus:border-[#555]"
                 />
                 {errors.message && (
-                  <span className="text-red-500 text-sm">Required field</span>
+                  <span className="text-red-500 text-sm">
+                    {errors.message.message}
+                  </span>
                 )}
               </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`bg-[#555] text-white py-3 px-6 rounded-md transition duration-300 ease-in-out ${
+                  isSubmitting
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-[#444]"
+                }`}
+              >
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </button>
+
+              {/* Success Message */}
+              {success && (
+                <p className="text-green-500 text-sm mt-2">
+                  Message sent successfully!
+                </p>
+              )}
             </div>
           </motion.form>
 
