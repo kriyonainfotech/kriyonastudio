@@ -59,7 +59,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.8 }}
             transition={{ delay: 1.2 }}
-            className=" sm:text-md md:text-lg lg:text-xl text-[#555] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mt-4 md:mt-6 mx-auto md:mx-0 md:absolute md:right-10 lg:right-20 xl:right-40 bottom-10 md:bottom-55 lg:bottom-75 xl:bottom-100"
+            className="text-center sm:text-md md:text-lg lg:text-xl text-[#555] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mt-4 md:mt-6 mx-auto md:mx-0 md:absolute md:right-10 lg:right-20 xl:right-40 bottom-10 md:bottom-55 lg:bottom-75 xl:bottom-100"
           >
             Visuals with Impact, Branding with Purpose.
           </motion.div>

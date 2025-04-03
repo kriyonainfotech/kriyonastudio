@@ -52,7 +52,7 @@ const ContactForm = () => {
 
   return (
     <section className="relative border border-[#55555580] bg-white">
-      <div className="container mx-auto px-6 md:px-8 py-24">
+      <div className="container mx-auto px-6 md:px-8 py-24 overflow-hidden">
         {/* Section Header */}
         <div className="border text-center border-[#55555580] py-5 mt-8">
           <h2 className="xxs:mx-5 sm:mx-5 lg:mx-24 2xl:mx-40 xxs:text-4xl sm:text-5xl xl:text-5xl font-bold bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent mx-auto xxs:w-auto leading-snug">
@@ -61,7 +61,7 @@ const ContactForm = () => {
         </div>
 
         <motion.div
-          className="grid md:grid-cols-2 gap-12 border-l border-r border-b border-[#55555580]"
+          className="grid md:grid-cols-2 gap-12 border-l border-r border-b border-[#55555580] w-full max-w-full overflow-hidden"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -69,7 +69,7 @@ const ContactForm = () => {
           {/* Contact Form */}
           <motion.form
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-6 p-6"
+            className="space-y-6 p-6 w-full"
             variants={itemVariants}
           >
             <div className="space-y-4">
@@ -79,7 +79,7 @@ const ContactForm = () => {
                   type="text"
                   placeholder="John Doe"
                   {...register("name", { required: true })}
-                  className="border border-[#55555580] p-3 focus:outline-none focus:border-[#555]"
+                  className="w-full border border-[#55555580] p-3 focus:outline-none focus:border-[#555]"
                 />
                 {errors.name && (
                   <span className="text-red-500 text-sm">Required field</span>
@@ -90,9 +90,9 @@ const ContactForm = () => {
                 <label className="text-sm mb-2">Email</label>
                 <input
                   type="email"
-                  placeholder="kriyonastudio@gmail.com"
+                  placeholder="JohnDeo@gmail.com"
                   {...register("email", { required: true })}
-                  className="border border-[#55555580] p-3 focus:outline-none focus:border-[#555]"
+                  className="w-full border border-[#55555580] p-3 focus:outline-none focus:border-[#555]"
                 />
                 {errors.email && (
                   <span className="text-red-500 text-sm">
@@ -105,40 +105,21 @@ const ContactForm = () => {
                 <label className="text-sm mb-2">Message</label>
                 <textarea
                   {...register("message", { required: true })}
-                  className="border border-[#55555580] p-3 h-32 focus:outline-none focus:border-[#555]"
+                  className="w-full border border-[#55555580] p-3 h-32 focus:outline-none focus:border-[#555]"
                 />
                 {errors.message && (
                   <span className="text-red-500 text-sm">Required field</span>
                 )}
               </div>
             </div>
-
-            {success && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-green-500 text-sm"
-              >
-                Message sent successfully!
-              </motion.div>
-            )}
-
-            <motion.button
-              type="submit"
-              className="border border-[#555] px-8 py-3 text-white bg-gradient-to-r from-red-700 to-gray-800 mont font-normal transition-all duration-300 w-full md:w-auto"
-              whileHover={{ scale: 1.05 }}
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Sending..." : "Send Message"}
-            </motion.button>
           </motion.form>
 
           {/* Contact Info */}
           <motion.div
-            className="space-y-8 border-l border-[#55555580] p-8"
+            className="space-y-8 border-t border-[#55555580] md:border-t-0 p-8 sm:p-6 xxs:p-4 w-full"
             variants={itemVariants}
           >
-            <div className="space-y-4">
+            <div className="space-y-4 text-center sm:text-left">
               <h3 className="text-2xl font-bold text-gray-800">
                 Kriyona Studio
               </h3>
@@ -147,17 +128,17 @@ const ContactForm = () => {
               </p>
             </div>
 
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="w-6 h-px bg-[#555]" />
+            <div className="space-y-4 text-center sm:text-left">
+              <div className="flex sm:flex-row flex-col items-center sm:items-start gap-2 sm:gap-4">
+                <div className="sm:mt-3 w-6 h-px bg-[#555]" />
                 <span className="text-md poppins">kriyonastudio@gmail.com</span>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-6 h-px bg-[#555]" />
+              <div className="flex sm:flex-row flex-col items-center sm:items-start gap-2 sm:gap-4">
+                <div className="sm:mt-3 w-6 h-px bg-[#555]" />
                 <span className="text-md poppins">+91 84879 53196</span>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-6 h-px bg-[#555]" />
+              <div className="flex sm:flex-row flex-col items-center sm:items-start gap-2 sm:gap-4 text-center sm:text-left">
+                <div className="sm:mt-3 w-6 h-px bg-[#555]" />
                 <span className="text-md poppins">
                   3rd floor, 51-52 Pramukh park society, Mahadev chowk, Mota
                   Varachha, Surat, Gujarat 394101
@@ -165,7 +146,7 @@ const ContactForm = () => {
               </div>
             </div>
 
-            <div className="border-t border-[#55555520] pt-8">
+            <div className="border-t border-[#55555520] pt-8 text-center sm:text-left">
               <h4 className="text-xl poppins font-bold text-gray-800 mb-4">
                 Working Hours
               </h4>

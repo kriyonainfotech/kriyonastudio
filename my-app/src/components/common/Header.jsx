@@ -92,6 +92,7 @@ const Header = () => {
             <motion.a
               key={index}
               href={item.link}
+              target="_blank"
               className="flex items-center text-gray-700 justify-center w-10 h-10 rounded-full border border-gray-600 hover:scale-110 transition-transform"
             >
               {item.icon}
@@ -121,32 +122,33 @@ const Header = () => {
               key={item.name}
               className="p-4 border-t border-[#55555520] hover:bg-[#f8f8f8]"
             >
-              {item.name}
+              <Link to={item.path}>{item.name}</Link>
             </div>
           ))}
           {/* Social Icons */}
           <div className="flex gap-4 border-t border-gray-300 py-5 ps-5">
             {[
               {
-                icon: "Instagram",
+                icon: <FaInstagram />,
                 link: "https://www.instagram.com/kriyonastudio/?locale=uken1&hl=am-et",
               },
               {
-                icon: "Youtube",
+                icon: <FaYoutube />,
                 link: "https://www.youtube.com/@KriyonaStudio",
               },
               {
-                icon: "FaceBook",
+                icon: <FaFacebookF />,
                 link: "https://www.facebook.com/profile.php?id=61570457034132",
               },
               {
-                icon: "LinkedIn",
+                icon: <FaLinkedinIn />,
                 link: "https://www.linkedin.com/company/kriyona-studio",
               },
             ].map((item, index) => (
               <motion.a
                 key={index}
                 href={item.link}
+                target="_blank"
                 className="flex items-center text-gray-700 justify-center w-10 h-10 rounded-full border border-gray-600 hover:scale-110 transition-transform"
               >
                 {item.icon}
