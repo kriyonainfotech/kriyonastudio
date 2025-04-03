@@ -12,26 +12,29 @@ const ContactForm = () => {
   const [success, setSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = async (data) => {
-    setIsSubmitting(true);
-    try {
-      const response = await fetch("https://kriyonastudio-backend.vercel.app/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      console.log(response, "data");
+    const onSubmit = async (data) => {
+      setIsSubmitting(true);
+      try {
+        const response = await fetch(
+          "https://kriyonastudio-backend.vercel.app/send-email",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          }
+        );
+        console.log(response, "data");
 
-      if (response.ok) {
-        setSuccess(true);
-        reset();
+        if (response.ok) {
+          setSuccess(true);
+          reset();
+        }
+      } catch (error) {
+        console.log("Error sending message:", error);
+      } finally {
+        setIsSubmitting(false);
       }
-    } catch (error) {
-      console.log("Error sending message:", error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    };
 
   const containerVariants = {
     hidden: { opacity: 0 },
