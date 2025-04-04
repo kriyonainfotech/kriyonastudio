@@ -6,13 +6,17 @@ require("dotenv").config(); // Load environment variables
 const app = express();
 
 // ✅ Enable CORS to allow frontend requests
-app.use(
-  cors({
-    origin: ["https://kriyonastudio.com", "http://localhost:3000"], // Add allowed domains
-    methods: ["POST"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://kriyonastudio.com"); // Allow frontend domain
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204); // Respond to preflight request
+  }
+
+  next();
+});
 
 // ✅ Middleware to parse JSON
 app.use(express.json());
