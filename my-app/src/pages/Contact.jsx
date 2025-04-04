@@ -114,6 +114,28 @@ const ContactForm = () => {
                 )}
               </div>
 
+              {/* 📞 Phone Number Field */}
+              <div className="flex flex-col">
+                <label className="text-sm mb-2">Phone Number</label>
+                <input
+                  type="tel"
+                  placeholder="+91 98765 43210"
+                  {...register("phone", {
+                    // required: "Phone number is required",
+                    pattern: {
+                      value: /^[0-9]{10,15}$/,
+                      message: "Enter a valid phone number",
+                    },
+                  })}
+                  className="w-full border border-[#55555580] p-3 focus:outline-none focus:border-[#555]"
+                />
+                {errors.phone && (
+                  <span className="text-red-500 text-sm">
+                    {errors.phone.message}
+                  </span>
+                )}
+              </div>
+
               {/* Message Field */}
               <div className="flex flex-col">
                 <label className="text-sm mb-2">Message</label>

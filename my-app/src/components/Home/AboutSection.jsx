@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { FaUsers, FaRegSmile, FaImages, FaVideo } from "react-icons/fa";
 
 const AboutSection = () => {
   const [ref, inView] = useInView({
@@ -44,7 +45,7 @@ const AboutSection = () => {
         animate={inView ? "visible" : "hidden"}
       >
         {/* Section Header */}
-        <motion.div className="text-center pb-8 mb-16 " variants={itemVariants}>
+        <motion.div className="text-center pb-8 mb-16" variants={itemVariants}>
           <h2 className="xxs:mx-5 sm:mx-5 lg:mx-24 2xl:mx-40 xxs:text-4xl sm:text-5xl xl:text-5xl font-bold text-gray-800 mx-auto xxs:w-auto leading-snug pt-20t">
             About Us
           </h2>
@@ -62,7 +63,7 @@ const AboutSection = () => {
               variants={itemVariants}
             >
               At{" "}
-              <span className="font-bold  bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent">
+              <span className="font-bold bg-gradient-to-r from-[#cc2727] to-black bg-clip-text text-transparent">
                 Kriyona Studio
               </span>
               , we bring your brand to life through visually stunning and
@@ -88,20 +89,10 @@ const AboutSection = () => {
                 amazing together!
               </p>
             </motion.div>
-
-            {/* <motion.div
-              className="group relative h-64 bg-gray-100 border border-[#55555580] overflow-hidden"
-              variants={itemVariants}
-              whileHover={{ scale: 0.98 }}
-            >
-              <div className="absolute inset-0 bg-[#55555510] mix-blend-multiply transition-opacity duration-300 group-hover:opacity-0" />
-              <div className="p-4 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white to-transparent">
-                <h3 className="text-xl">Process →</h3>
-              </div>
-            </motion.div> */}
           </motion.div>
         </div>
 
+        {/* Our Expertise Section */}
         <motion.div
           className="bg-white border border-[#55555580] p-8 mt-10 relative"
           variants={itemVariants}
@@ -126,13 +117,29 @@ const AboutSection = () => {
           </ul>
         </motion.div>
 
-        {/* Animated Border Elements */}
-        {/* <motion.div
-          className="absolute left-8 top-1/2 w-px h-32 bg-[#55555580]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-        /> */}
+        {/* Stats Section (Improved Card Layout) */}
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10"
+          variants={itemVariants}
+        >
+          {[
+            { icon: <FaUsers />, count: "20+", label: "Clients Served" },
+            { icon: <FaRegSmile />, count: "98%", label: "Satisfaction Rate" },
+            { icon: <FaImages />, count: "300+", label: "Creative Posts" },
+            { icon: <FaVideo />, count: "100+", label: "Videos Created" },
+          ].map((stat, index) => (
+            <div
+              key={index}
+              className="p-6 bg-gradient-to-b from-red-100 to-white border-l-4 border-[#cc2727] shadow-lg rounded-lg text-center"
+            >
+              <div className="text-red-600 text-4xl mb-2">{stat.icon}</div>
+              <p className="text-3xl font-semibold text-gray-800">
+                {stat.count}
+              </p>
+              <p className="text-gray-500 text-sm mb-5">{stat.label}</p>
+            </div>
+          ))}
+        </motion.div>
       </motion.div>
     </section>
   );

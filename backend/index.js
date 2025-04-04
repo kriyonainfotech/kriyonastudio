@@ -72,12 +72,12 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL,
     pass: process.env.EMAIL_PASSWORD, // Use Gmail App Password
   },
-}); 
+});
 
 // ✅ Email API Endpoint
 app.post("/send-email", async (req, res) => {
   try {
-    const { name, email, message } = req.body;
+    const { name, email, message, phone } = req.body;
 
     // Validate request data
     if (!name || !email || !message) {
@@ -89,8 +89,16 @@ app.post("/send-email", async (req, res) => {
     const mailOptions = {
       from: email,
       to: process.env.EMAIL,
-      subject: `New Contact Form Submission from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      subject: `📩 New Inquiry from ${name}`,
+      text: `🔹 Name: ${name}
+      🔹 Email: ${email}
+      🔹 Phone: ${phone}
+
+      📜 Message:
+      ${message}
+
+      📅 Submitted on: ${new Date().toLocaleString()}
+      `,
     };
 
     // ✅ Send email

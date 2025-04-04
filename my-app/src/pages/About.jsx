@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export const About = () => {
   return (
@@ -39,14 +40,30 @@ export const About = () => {
                 team of skilled innovators. Our journey reflects our commitment
                 to sustainable digital solutions.
               </p>
-              <div className="flex gap-8 mt-8">
+              <div className="grid grid-cols-2 gap-6 mt-8">
                 <div className="text-center p-4 border-l-2 border-red-200">
-                  <p className="text-2xl font-light text-red-600">15+</p>
-                  <p className="text-gray-500 text-sm">Projects Delivered</p>
+                  <p className="text-2xl font-light text-red-600">20+</p>
+                  <p className="text-gray-500 text-sm">
+                    Clients Served Successfully
+                  </p>
                 </div>
                 <div className="text-center p-4 border-l-2 border-red-200">
                   <p className="text-2xl font-light text-red-600">98%</p>
-                  <p className="text-gray-500 text-sm">Client Retention</p>
+                  <p className="text-gray-500 text-sm">
+                    Client Satisfaction Rate
+                  </p>
+                </div>
+                <div className="text-center p-4 border-l-2 border-red-200">
+                  <p className="text-2xl font-light text-red-600">300+</p>
+                  <p className="text-gray-500 text-sm">
+                    Creative Posts Designed
+                  </p>
+                </div>
+                <div className="text-center p-4 border-l-2 border-red-200">
+                  <p className="text-2xl font-light text-red-600">100+</p>
+                  <p className="text-gray-500 text-sm">
+                    Professional Videos Created
+                  </p>
                 </div>
               </div>
             </div>
@@ -109,12 +126,14 @@ export const About = () => {
             <p className="text-gray-600 mb-6 max-w-xl mx-auto">
               Let's collaborate and craft something extraordinary together.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              className="px-8 py-3 mont text-white bg-gradient-to-r from-red-700 to-gray-800 rounded-lg cursor-pointer transition-all duration-300 shadow-md"
-            >
-              Schedule Consultation
-            </motion.button>
+            <Link to="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="px-8 py-3 mont text-white bg-gradient-to-r from-red-700 to-gray-800 rounded-lg cursor-pointer transition-all duration-300 shadow-md"
+              >
+                Schedule Consultation
+              </motion.button>
+            </Link>
           </div>
         </section>
 

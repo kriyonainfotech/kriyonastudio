@@ -31,29 +31,29 @@ function App() {
     scrollToHash();
   }, [location]); // Runs when route changes
 
-  // useEffect(() => {
-  //   // Disable Right-Click
-  //   const disableRightClick = (event) => event.preventDefault();
-  //   document.addEventListener("contextmenu", disableRightClick);
+  useEffect(() => {
+    // Disable Right-Click
+    const disableRightClick = (event) => event.preventDefault();
+    document.addEventListener("contextmenu", disableRightClick);
 
-  //   // Disable Keyboard Shortcuts
-  //   const disableKeyboardShortcuts = (event) => {
-  //     if (
-  //       event.key === "F12" ||
-  //       (event.ctrlKey && event.shiftKey && event.key === "I") ||
-  //       (event.ctrlKey && event.key === "U")
-  //     ) {
-  //       event.preventDefault();
-  //     }
-  //   };
-  //   document.addEventListener("keydown", disableKeyboardShortcuts);
+    // Disable Keyboard Shortcuts
+    const disableKeyboardShortcuts = (event) => {
+      if (
+        event.key === "F12" ||
+        (event.ctrlKey && event.shiftKey && event.key === "I") ||
+        (event.ctrlKey && event.key === "U")
+      ) {
+        event.preventDefault();
+      }
+    };
+    document.addEventListener("keydown", disableKeyboardShortcuts);
 
-  //   // Clean up listeners on unmount
-  //   return () => {
-  //     document.removeEventListener("contextmenu", disableRightClick);
-  //     document.removeEventListener("keydown", disableKeyboardShortcuts);
-  //   };
-  // }, []);
+    // Clean up listeners on unmount
+    return () => {
+      document.removeEventListener("contextmenu", disableRightClick);
+      document.removeEventListener("keydown", disableKeyboardShortcuts);
+    };
+  }, []);
 
   useEffect(() => {
     // Simulate a loading delay

@@ -37,15 +37,6 @@ const Header = () => {
             className="w-auto h-8 object-contain"
             alt="Other Page Logo"
           />
-          {/* {location.pathname === "/" ? (
-            <img src="/kriyonastudio.svg" className="w-8 h-8" alt="Home Logo" />
-          ) : (
-            <img
-              src="/kriyonastudio2.png"
-              className="w-auto h-8"
-              alt="Other Page Logo"
-            />
-          )} */}
         </Link>
       </motion.div>
 
@@ -122,9 +113,12 @@ const Header = () => {
               key={item.name}
               className="p-4 border-t border-[#55555520] hover:bg-[#f8f8f8]"
             >
-              <Link to={item.path}>{item.name}</Link>
+              <Link to={item.path} onClick={() => setIsMenuOpen(false)}>
+                {item.name}
+              </Link>
             </div>
           ))}
+
           {/* Social Icons */}
           <div className="flex gap-4 border-t border-gray-300 py-5 ps-5">
             {[

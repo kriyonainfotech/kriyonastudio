@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 const Pricing = () => {
   const [ref, inView] = useInView({
@@ -255,9 +256,14 @@ const Pricing = () => {
             <p className="text-gray-600 mb-6 max-w-xl mx-auto">
               Let's collaborate and craft something extraordinary together.
             </p>
-            <button className="px-8 py-3 mont text-white bg-gradient-to-r from-gray-800 to-red-700 rounded-lg cursor-pointer transition-all duration-300 shadow-md">
-              Schedule Consultation
-            </button>
+            <Link to="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="px-8 py-3 mont text-white bg-gradient-to-r from-red-700 to-gray-800 rounded-lg cursor-pointer transition-all duration-300 shadow-md"
+              >
+                Schedule Consultation
+              </motion.button>
+            </Link>
           </div>
         </section>
 

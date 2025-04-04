@@ -39,26 +39,29 @@ const Footer = () => {
       viewport={{ once: true }}
     >
       <div className="container mx-auto px-6 md:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full">
           {/* Branding Column */}
-          <div className="space-y-4">
-            <div className="mb-8">
+          <div className="space-y-4 flex flex-col justify-center items-center text-center lg:items-start lg:text-left">
+            <div className="mb-8 flex items-center justify-center md:justify-start">
               <img src="/kriyonastudio2.png" className="h-14 w-auto" alt="" />
             </div>
-            <p className="text-md pe-4 text-gray-800 poppins">
+            <p className="text-md pe-4 text-gray-800 poppins md:text-left">
               Crafting digital experiences with precision and creativity
             </p>
           </div>
 
           {/* Links Columns */}
           {footerLinks.map((section) => (
-            <div key={section.title} className="space-y-3">
+            <div
+              key={section.title}
+              className="space-y-3 text-center md:text-left"
+            >
               <h4 className="text-xl poppins font-medium mb-5">
                 {section.title}
               </h4>
               {section.items.map((item) => (
                 <motion.a
-                  key={item}
+                  key={item.text}
                   href={item.link}
                   className="block mont text-md text-gray-700 hover:text-[#555] transition-colors"
                   whileHover={{ x: 5 }}
@@ -69,9 +72,10 @@ const Footer = () => {
             </div>
           ))}
 
-          <div className="flex flex-col gap-2 text-sm">
+          {/* Contact Section */}
+          <div className="flex flex-col gap-2 text-sm text-center md:text-left">
             <h4 className="text-xl poppins font-medium mb-5">Contact Us</h4>
-            <div className="flex items-start gap-2 mb-3 text-md tracking-wide roboto">
+            <div className="flex items-start justify-center md:justify-start gap-2 mb-3 text-md tracking-wide roboto">
               <FaEnvelope className="mt-1 text-gradient" />
               <a
                 href="mailto:kriyonastudio@gmail.com"
@@ -80,16 +84,16 @@ const Footer = () => {
                 kriyonastudio@gmail.com
               </a>
             </div>
-            <div className="flex items-start gap-2 mb-3 text-md tracking-wide roboto">
-              <FaPhoneAlt className=" mt-1 text-gradient" />
+            <div className="flex items-start justify-center md:justify-start gap-2 mb-3 text-md tracking-wide roboto">
+              <FaPhoneAlt className="mt-1 text-gradient" />
               <a
-                href="tel:+1234567890"
+                href="tel:+918487953196"
                 className="block mont text-gray-800 hover:text-[#555] transition-colors"
               >
                 +91 84879 53196
               </a>
             </div>
-            <div className="flex items-start gap-2 mb-3 text-md tracking-wide roboto">
+            <div className="flex items-start justify-center md:justify-start gap-2 mb-3 text-md tracking-wide roboto">
               <FaMapMarkerAlt className="text-gradient text-2xl" />
               <span className="block mont text-gray-800 hover:text-[#555] transition-colors">
                 3rd floor, 51-52 Pramukh park society, Mahadev chowk, Mota
@@ -99,31 +103,13 @@ const Footer = () => {
           </div>
 
           {/* Social Links */}
-          {/* <div className="space-y-4">
+          <div className="space-y-4 text-center md:text-left">
             <h4 className="text-sm font-medium mb-2">Follow Us</h4>
-            <div className="flex gap-4">
-              {["FaceBook", "Instagram", "LinkedIn", "Youtube"].map(
-                (platform) => (
-                  <motion.a
-                    key={platform}
-                    href="#"
-                    className="text-[#55555580] hover:text-[#555]"
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <span className="sr-only">{platform}</span>
-                    <SocialIcon platform={platform} />
-                  </motion.a>
-                )
-              )}
-            </div>
-          </div> */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-medium mb-2">Follow Us</h4>
-            <div className="flex gap-4">
+            <div className="flex justify-center md:justify-start gap-4">
               {[
                 {
                   platform: "Instagram",
-                  link: "https://www.instagram.com/kriyonastudio/?locale=uken1&hl=am-et",
+                  link: "https://www.instagram.com/kriyonastudio",
                 },
                 {
                   platform: "Youtube",
