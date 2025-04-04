@@ -16,13 +16,15 @@ const ContactForm = () => {
       setIsSubmitting(true);
       try {
         const response = await fetch(
-          "https://kriyonastudio-backend.vercel.app/send-email",
+          "https://kashtbanjan-c.vercel.app/send-email",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
+            mode: "cors",
           }
         );
+
         console.log(response, "data");
 
         if (response.ok) {

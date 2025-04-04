@@ -56,7 +56,7 @@ const PORT = process.env.PORT || 5000;
 // ✅ Configure CORS - Allow only your frontend domain
 app.use(
   cors({
-    origin: ["https://kriyonastudio.com"], // Replace with your live frontend URL
+    origin: ["https://kriyonastudio.com", "http://localhost:5173"], // ✅ Fixed quotes
     methods: ["POST"],
     allowedHeaders: ["Content-Type"],
   })
@@ -72,7 +72,7 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL,
     pass: process.env.EMAIL_PASSWORD, // Use Gmail App Password
   },
-});
+}); 
 
 // ✅ Email API Endpoint
 app.post("/send-email", async (req, res) => {
