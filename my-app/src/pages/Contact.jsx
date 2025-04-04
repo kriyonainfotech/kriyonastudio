@@ -16,7 +16,7 @@ const ContactForm = () => {
       setIsSubmitting(true);
       try {
         const response = await fetch(
-          "https://ks-backend.vercel.app/send-email",
+          "https://ks-backend.vercel.app/api/send-email",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
